@@ -117,6 +117,8 @@
   </div>
 </section>
 
+
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -134,20 +136,37 @@
   </div>
 </section>
 
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      <p>
+        Overview of the interaction between the Solver and Expert agents in our benchmark. Both agents operate with structured input corresponding to working and episodic memory. The Solver receives an image of the puzzle state (working memory) and makes decisions based on the available actions described in the task prompt. The Expert, guided by instruction manuals (working memory), provides advice based on the Solver's descriptions, such as indicating which buttons to press. The Solver can choose to execute actions by interacting with the environment or communicate with the Expert for further guidance. Their interaction is documented through a dialogue, showcasing the cooperation required to complete the task. Both agents engage in self-reflection by referencing the conversation history, which is continuously updated and incorporated into their input as episodic memory.
+      </p>
+    </div>
+  </div>
+</section> -->
+
+
 
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-shiba">
+          <img src="./static/images/atmpuzzle.png"
+                 class="interpolation-image"
+                 alt="ATM Puzzle."/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/telehealth.png"
+                 class="interpolation-image"
+                 alt="Telehealth Puzzle."/>
+        </div>
         <div class="item item-steve">
           <img src="./static/images/keypad.png"
                  class="interpolation-image"
                  alt="Keypad Puzzle."/>
-        </div>
-        <div class="item item-chair-tp">
-          <img src="./static/images/button.png"
-                 class="interpolation-image"
-                 alt="Button Puzzle."/>
         </div>
         <div class="item item-shiba">
           <img src="./static/images/password.png"
@@ -175,11 +194,6 @@
                  alt="LED Puzzle."/>
         </div>
         <div class="item item-shiba">
-          <img src="./static/images/dog.png"
-                 class="interpolation-image"
-                 alt="Dog Puzzle."/>
-        </div>
-        <div class="item item-shiba">
           <img src="./static/images/who.png"
                  class="interpolation-image"
                  alt="Who Puzzle."/>
@@ -191,6 +205,9 @@
         </div>
        
       </div>
+      <p>
+        Example puzzles presented to the solver in our benchmark. Notably, each puzzle is multimodal and cannot be solved without communicating with the expert.
+      </p>
     </div>
   </div>
 </section>
@@ -217,22 +234,44 @@ only surpass the random baseline when a human is involved.
     </div>
     <!--/ Abstract. -->
 
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      
+      <div class="column">
+        <h2 class="title is-3">Agent Interaction</h2>
+        <img width="100%" src="./static/images/agents.jpg"
+                 class="interpolation-image"
+                 alt="Agent Setup"/>
+        <div class="content has-text-justified">
+          <p>
+            Overview of the interaction between the Solver and Expert agents in our benchmark. Both agents operate with structured input corresponding to working and episodic memory. The Solver receives an image of the puzzle state (working memory) and makes decisions based on the available actions described in the task prompt. The Expert, guided by instruction manuals (working memory), provides advice based on the Solver's descriptions, such as indicating which buttons to press. The Solver can choose to execute actions by interacting with the environment or communicate with the Expert for further guidance. Their interaction is documented through a dialogue, showcasing the cooperation required to complete the task. Both agents engage in self-reflection by referencing the conversation history, which is continuously updated and incorporated into their input as episodic memory.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
     <div class="container is-max-desktop">
+      
       <div class="columns is-centered has-text-centered">
+        
         <div class="column">
           <h2 class="title is-3">Results</h2>
+          <img width="60%" src="./static/images/Conversation_Length_Success_Rate.jpg"
+                class="interpolation-image",
+                alt="Graph of Conversation Length and Success Rate."/>
+          
           <div class="content has-text-justified">
-            <img src="./static/images/graph.png"
-                 class="interpolation-image"
-                 alt="Graph of Conversation Length and Success Rate."/>
+
+            
             <p>
-             We find that even the most powerful closed-source LLMs struggle to communicate without human involvement. Here we plot the success rate as a function of conversation length for different settings. We obtain the overall success rate and mistake rate by averaging over 100 sampled instances across all puzzles for the AI-AI setting, and 30 sampled instances for the AI-Human setting. Diamond marker indicates a human is the solver agent. Square marker indicates the solver and expert are played by the same AI model.
+             We find that even the most powerful closed-source LLMs struggle to communicate without human involvement. Here we plot the success rate as a function of conversation length for different settings. The open-source models such as LLaVA, InternVL, actually underperform the random baseline for most conversation lengths, suggesting limited ability to utilize episodic memory and plateau after about 4-5 conversation turns.
             </p>
-            <img src="./static/images/piechart.png"
+            <img width="90%" src="./static/images/piechart.png"
                  class="interpolation-image"
                  alt="Pie chart of common failure modes."/>
             <p>
-             We further analyze the underlying reason for failure based on conversations of 50 failed runs. We look at GPT-4o (left) and InternVL 26b (right) conversations, and define the following failure modes:
+             We further analyze the underlying reason for failure based on conversations of all 1000 puzzles. We look at the best closed-source and open-source performing model conversations: GPT-4o (left) and LLaMA 3.2 (right), and define the following failure modes:
              <ul>
               <li><b>Repetition Loop:</b> The solver repeats its past incorrect actions, even if is in a situation
                 it has encountered before.</li>
@@ -251,130 +290,11 @@ only surpass the random baseline when a human is involved.
     <div class="columns is-centered has-text-centered">
       <div class="column">
         <h2 class="title is-3">Leaderboard 🏆</h2>
-        <div class="publication-video">
-          <table>
-            <caption>Average Partial Success Rate (%) (↑)</caption>
-            <thead>
-                <tr>
-                    <th>Model</th>
-                    <th>Button</th>
-                    <th>Dog</th>
-                    <th>Wire</th>
-                    <th>Who</th>
-                    <th>LED</th>
-                    <th>Memory</th>
-                    <th>Keypad</th>
-                    <th>Password</th>
-                    <th>Color</th>
-                    <th>Maze</th>
-                    <th>Overall</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Random</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>85</td>
-                    <td>25</td>
-                    <td>33</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>15</td>
-                    <td>56</td>
-                </tr>
-                <tr>
-                  <td>GPT-4V</td>
-                  <td>80</td>
-                  <td>60</td>
-                  <td>100</td>
-                  <td>90</td>
-                  <td>68</td>
-                  <td>24</td>
-                  <td>72</td>
-                  <td>0</td>
-                  <td>14</td>
-                  <td>21</td>
-                  <td>53</td>
-                </tr>
-                <tr>
-                  <td>GPT-4o</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>90</td>
-                  <td>26</td>
-                  <td>34</td>
-                  <td>40</td>
-                  <td>0</td>
-                  <td>14</td>
-                  <td>0</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>InternVL (26b)</td>
-                  <td>90</td>
-                  <td>100</td>
-                  <td>80</td>
-                  <td>20</td>
-                  <td>30</td>
-                  <td>20</td>
-                  <td>10</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>35</td>
-                </tr>
-                <tr>
-                  <td>InternVL (8b)</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>30</td>
-                  <td>40</td>
-                  <td>4</td>
-                  <td>12</td>
-                  <td>5</td>
-                  <td>0</td>
-                  <td>11</td>
-                  <td>0</td>
-                  <td>30</td>
-                </tr>
-                <tr>
-                  <td>QWenVL (2b)</td>
-                  <td>100</td>
-                  <td>100</td>
-                  <td>30</td>
-                  <td>20</td>
-                  <td>100</td>
-                  <td>0</td>
-                  <td>17</td>
-                  <td>0</td>
-                  <td>9</td>
-                  <td>2</td>
-                  <td>38</td>
-                </tr>
-                <tr>
-                  <td>QWenVL (7b)</td>
-                  <td>90</td>
-                  <td>90</td>
-                  <td>30</td>
-                  <td>10</td>
-                  <td>52</td>
-                  <td>0</td>
-                  <td>33</td>
-                  <td>0</td>
-                  <td>4</td>
-                  <td>12</td>
-                  <td>32</td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
+        <img src="./static/images/table.png"
+                class="interpolation-image",
+                alt="Table of performance."/>
         <p>
-          Using COMMA, we benchmark the collaborative capabilities of closed source and open source multimodal LLMs, summarized in the table above.
+          Using COMMA, we benchmark the collaborative capabilities of closed-source and open-source multimodal LLMs, summarized in the table above.
         </p>
       </div>
     </div>
