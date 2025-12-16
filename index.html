@@ -65,10 +65,10 @@
             <span class="author-block">
               <a href="https://tossowski.github.io/website/">Tim Ossowski</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://chenjix.github.io/">Jixuan Chen</a><sup>2</sup>,</span>
-            <span class="author-block">
+              <span class="author-block">
               <a href="https://www.linkedin.com/in/danyal-maqbool-b93408215/">Danyal Maqbool</a><sup>1</sup>,
             </span>
+              <a href="https://chenjix.github.io/">Jixuan Chen</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=eyIrttAAAAAJ&hl=en">Zefan Cai</a><sup>1</sup>,
             </span>
@@ -99,7 +99,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/tossowski/AgentBenchmark/tree/main"
+                <a href="https://github.com/tossowski/COMMA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -257,7 +257,10 @@ only surpass the random baseline when a human is involved.
         
         <div class="column">
           <h2 class="title is-3">Results</h2>
-          <img width="60%" src="./static/images/Conversation_Length_Success_Rate.jpg"
+          <hr class="section-divider"/>
+          <h3 class="title is-4 has-text-left">Conversation Length vs Success Rate</h3>
+
+          <img width="60%" src="./static/images/graph.png"
                 class="interpolation-image",
                 alt="Graph of Conversation Length and Success Rate."/>
           
@@ -267,7 +270,9 @@ only surpass the random baseline when a human is involved.
             <p>
              We find that even the most powerful closed-source LLMs struggle to communicate without human involvement. Here we plot the success rate as a function of conversation length for different settings. The open-source models such as LLaVA, InternVL, actually underperform the random baseline for most conversation lengths, suggesting limited ability to utilize episodic memory and plateau after about 4-5 conversation turns.
             </p>
-            <img width="90%" src="./static/images/piechart.png"
+          <hr class="section-divider"/>
+          <h3 class="title is-4 has-text-left">Qualitative Error Analysis</h3>
+          <img width="90%" src="./static/images/error_analysis.png"
                  class="interpolation-image"
                  alt="Pie chart of common failure modes."/>
             <p>
@@ -282,6 +287,31 @@ only surpass the random baseline when a human is involved.
           </ul> 
           For more detailed examples and results, feel free to check out <a href="https://arxiv.org/pdf/2410.07553">our paper!</a>
             </p>
+          <hr class="section-divider"/>
+          <h3 class="title is-4 has-text-left">Communication Efficiency</h3>
+          <div class="has-text-centered">
+              
+              <img width="70%" src="./static/images/efficiency.png"
+                  class="interpolation-image"
+                  alt="Efficiency scores of models."/>
+            </div>
+
+            
+            <p>
+             We observe a tradeoff between performance and token usage on our benchmark. Humans are able to quickly and reliably solve puzzles with just a few sentences of communication. In the graph, agents in the top left corner achieve a better balance between performance and efficiency. Among AI agents, GPT-4o performs best, but still far below human efficiency. The size of each point is proportional to the model's communication efficiency score, defined below:
+            </p>
+            
+            <div class="has-text-centered">
+
+              <img width="70%" src="./static/images/equation.png"
+                  class="interpolation-image"
+                  alt="Efficiency scores of models."/>
+            </div>
+            <p>
+             We expect that hybrid thinking approaches, which better balance internal reasoning and external communication, will be key to closing the efficiency gap between current models and human reasoning.
+            </p>
+          <hr class="section-divider"/>
+
           </div>
         </div>
       </div>
@@ -324,7 +354,7 @@ only surpass the random baseline when a human is involved.
               Decision-Making Agents via Reinforcement Learning</a> and <a href="https://arxiv.org/pdf/2306.00924">Minding Language Models' (Lack of) Theory of Mind: A Plug-and-Play Multi-Character Belief Tracker</a>. Her works strongly inspired the ideas in our benchmark.
           </p>
           <p>
-            Some works illustrate the potential of agents to collaborate to perform difficult tasks such as <a href="https://arxiv.org/abs/2307.07924">Software Development</a> and <a href=" https://arxiv.org/abs/2406.08979">Function Generation</a>.
+            Some works illustrate the potenial of agents to collaborate to perform difficult tasks such as <a href="https://arxiv.org/abs/2307.07924">Software Development</a> and <a href=" https://arxiv.org/abs/2406.08979">Function Generation</a>.
           </p>
           <p>
             For a more comprehensive list, feel free to check out <a href="https://arxiv.org/abs/2402.15116">this survey paper</a>.

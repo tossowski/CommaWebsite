@@ -185,3 +185,10 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
+
+hr.section-divider {
+  border: 0;
+  height: 3px;
+  background: #6a6a6a;
+  margin: 3rem 0;
+}
